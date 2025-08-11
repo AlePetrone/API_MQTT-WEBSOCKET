@@ -15,6 +15,29 @@ MESSAGE_TYPES = {
 Token_Activos = {}      # {token: {username: 'pepito', ...}}
 active_connections = {} # {token: websocket_object}
 
+
+#----- MQTT HANDLER ---
+
+# Recibe msj por MQTT
+def on_message (client, userdata, msj):
+    topic_msj = mjs.topic
+    payload_msj = json.loads(msj.payload)
+    if payload_msj:
+        try:
+            websockets.broadcast(active_connections.values(), json.dumps({"Topic":topic_msj, "payload":payload_msj}))
+        except Exception as e:
+            print("error en on_message:", e)
+
+def on_connect (client, userdata, flags, rc, propierties=None):
+    print("Mqtt conectado!")
+
+def on_disconnect (client,userdata,rc)
+    if rc !=0:
+        print("Mqtt desconectado")
+
+#Falta agregar una funcion para suscribirse a un topic.
+
+
 # --- HANDLER PARA LA API (PUERTO 6600) ---
 async def websocket_api(websocket):
     """Maneja órdenes de la API de control (ej: login, logout)."""
@@ -108,6 +131,14 @@ async def handler_client_connection(websocket):
         print(f"CLIENTE: Error inesperado en la conexión: {e}")
         if websocket.open:
             await websocket.close()
+
+
+
+
+
+
+
+
 
 async def main():
     PORT_API = 6600

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente de Prueba WebSocket2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cliente de MQTT</h1>
+        
+        <div class="input-area">
+            <input type="text" id="Mqtt-Topic" placeholder="Escribe un topic aquí...">
+            <input type="text" id="Mqtt-Payload" placeholder="Escribe el mensaje aquí...">
+            
+            <div class="buttons">
+                <button id="connectClientMqtt">Conectar Cliente a WS</button>
+                <button id="sendClientMqtt">Enviar</button>
+            </div>
+        </div>
+
+        <div class="console-area">
+            <h2>Consola de Respuestas</h2>
+            <div id="logOutput" class="log-output"></div>
+        </div>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>
