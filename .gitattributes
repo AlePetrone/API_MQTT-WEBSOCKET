@@ -1,0 +1,33 @@
+# Forzar que todos los archivos de texto usen finales de línea LF en el repositorio,
+# manejando automáticamente la conversión para cada sistema operativo en el checkout.
+* text=auto eol=lf
+
+# Especificar archivos que son binarios y no deben ser modificados.
+*.png      -text
+*.jpg      -text
+*.jpeg     -text
+*.gif      -text
+*.ico      -text
+*.pdf      -text
+*.zip      -text
+*.gz       -text
+*.rar      -text
+*.7z       -text
+*.exe      -text
+*.dll      -text
+*.so       -text
+*.dmg      -text
+*.iso      -text
+*.bin      -text
+*.woff     -text
+*.woff2    -text
+*.ttf      -text
+*.eot      -text
+*.mp3      -text
+*.mp4      -text
+*.mov      -text
+*.avi      -text
+*.psd      -text
+*.ai       -text
+*.sqlite   -text
+*.db       -text
