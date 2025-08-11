@@ -1,0 +1,108 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#messageInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+#sendWs1 {
+    background-color: #007bff;
+}
+#sendWs1:hover {
+    background-color: #0056b3;
+}
+
+#sendWs2 {
+    background-color: #28a745;
+}
+#sendWs2:hover {
+    background-color: #1e7e34;
+}
+
+.log-output {
+    background-color: #2a2a2e;
+    color: #f1f1f1;
+    height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    white-space: pre-wrap; /* Para que el texto no se desborde */
+}
+
+.log-message {
+    padding: 4px 0;
+    border-bottom: 1px solid #444;
+}
+
+.log-message.client {
+    color: #87cefa; /* LightSkyBlue */
+}
+
+.log-message.ws1 {
+    color: #98fb98; /* PaleGreen */
+}
+
+.log-message.ws2 {
+    color: #f0e68c; /* Khaki */
+}
+
+.log-message.error {
+    color: #ff6347; /* Tomato */
+    font-weight: bold;
+}

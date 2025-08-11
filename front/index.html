@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente de Prueba WebSocket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cliente de Prueba Login</h1>
+        
+        <div class="input-area">
+            <input type="text" id="tokenInput" placeholder="Escribe un token aquí...">
+            <input type="text" id="usernameInput" placeholder="Escribe un nombre de usuario aquí...">
+            
+            <div class="buttons">
+                <button id="registerTokenBtn">1. Registrar Token en API (6600)</button>
+                <button id="connectClientBtn">2. Conectar Cliente a WS (7600)</button>
+                <button id="logoutBtn">3. Enviar LOGOUT a API (6600)</button>
+            </div>
+        </div>
+
+        <div class="console-area">
+            <h2>Consola de Respuestas</h2>
+            <div id="logOutput" class="log-output"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
