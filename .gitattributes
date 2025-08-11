@@ -31,3 +31,17 @@
 *.ai       -text
 *.sqlite   -text
 *.db       -text
+
+# Definir que los archivos .ino son C++
+*.ino linguist-language=C++
+
+# Marcar archivos generados para que no sean analizados
+dist/ linguist-generated
+*.min.js linguist-generated
+
+# Archivos y carpetas a ignorar al crear un archivo del repositorio
+.gitignore       export-ignore
+.gitattributes   export-ignore
+tests/           export-ignore
+.github/         export-ignore
+docs/            export-ignore
