@@ -14,13 +14,12 @@ MESSAGE_TYPES = {
 };
 
 # Diccionario para almacenar tokens y sus datos asociados.
-# En un sistema real, esto debería estar en una base de datos o un caché como Redis.
 Token_Activos = {}       # {"token123": {"token": "token123", "username": "user1"}}
 active_connections = {}  # {"token123": websocket_object}
 
 
+
 async def main():
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
     PORT_API = 6600
     PORT_CLIENT = 7600

@@ -12,34 +12,26 @@ TOPIC_PUBLICACION = "mi/dispositivo/telemetria"  # Tópico para enviar datos
 
 def on_connect(client, userdata, flags, rc, properties):
     if rc == 0:
-        print("✅ ¡Conectado exitosamente al Broker!")
+        print("¡Conectado exitosamente al Broker!")
         for topic_name in TOPIC_SUSCRIPCION.values():
             client.subscribe(topic_name)
     else:
-        print(f"❌ Fallo al conectar, código de retorno: {rc}\n")
+        print(f"Fallo al conectar, código de retorno: {rc}\n")
 
-def on_subscribe(client, userdata, mid, granted_qos, properties):
-    """Callback para cuando la suscripción es exitosa."""
-    print(f"📡 Suscrito exitosamente al tópico: '{TOPIC_SUSCRIPCION}'")
 
 def on_message(client, userdata, msg):
-    """Callback para cuando se recibe un mensaje en un tópico suscrito."""
-    print(f"📩 Mensaje recibido -> Tópico: '{msg.topic}'")
+    print(f"Mensaje recibido -> Tópico: '{msg.topic}'")
     try:
-        # Intentar decodificar el payload como JSON
-        payload = json.loads(msg.payload.decode('utf-8'))
-        print(f"   Payload: {payload}")
-        # Aquí iría la lógica para procesar el comando, por ejemplo:
-        if 'comando' in payload and payload['comando'] == 'REINICIAR':
-            print("   -> ¡Comando de reinicio recibido!")
-    except json.JSONDecodeError:
-        # Si no es JSON, mostrarlo como texto plano
-        print(f"   Payload (raw): {msg.payload.decode('utf-8')}")
+        payload = json.loads(msg.payload)
+        for ws in active_connections.values():
+            websocket.brodcast(ws, json.dumps("Este es el payload:", payload))
+    except Exception as error:
+        print("error:",error)
 
 # --- Script Principal ---
 if __name__ == "__main__":
     # 1. Crear una instancia del cliente
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+    client = mqtt.Client(CallbackAPIVersion.VERSION2)
 
     # 2. Asignar las funciones callback
     client.on_connect = on_connect
